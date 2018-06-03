@@ -70,13 +70,10 @@ var openCards = [];
        card.classList.add('open', 'show');
        var firstCardType = openCards[0].dataset.card;
        if (openCards.length == 2) {
+         moveCount();
          if (openCards[0].dataset.card == openCards[1].dataset.card) {
-           openCards[0].classList.add('match');
-           openCards[0].classList.add('open');
-           openCards[0].classList.add('show');
-           openCards[1].classList.add('match');
-           openCards[1].classList.add('open');
-           openCards[1].classList.add('show');
+           openCards[0].classList.add('match', 'open', 'show');
+           openCards[1].classList.add('match', 'open', 'show');
            openCards = [];
          } else {
            setTimeout(function() {
@@ -90,3 +87,28 @@ var openCards = [];
      }
    });
  });
+
+ //Move counter
+
+ let moves = 0;
+ let moveCounter = document.querySelector('.moves');
+ const stars = document.querySelectorAll('.fa-star');
+
+ function moveCount() {
+   moves++;
+   moveCounter.innerHTML = moves;
+   if (moves > 8 && moves < 10) {
+     for (i = 0; i < 3; i++) {
+       if (i > 1) {
+         stars[i].style.visibility = 'collapse';
+       }
+     }
+   }
+   else if (moves > 11) {
+     for (i = 0; i < 3; i++) {
+       if (i > 0) {
+         stars[i].style.visibility = 'collapse';
+       }
+     }
+   }
+ }
