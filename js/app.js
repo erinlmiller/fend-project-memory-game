@@ -119,7 +119,7 @@ var openCards = [];
    }
  }
 
-//Timer TODO fix bad formatting at 0 seconds (00:0)
+//Timer TODO fix bad formatting at 0 seconds (00:0), and make timer start on first click
 
 var seconds = 0;
 var minutes = 0;
