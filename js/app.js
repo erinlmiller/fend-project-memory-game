@@ -88,7 +88,7 @@ var openCards = [];
    });
  });
 
- //Move counter
+ //Move counter and star rating system
 
  let moves = 0;
  let moveCounter = document.querySelector('.moves');
@@ -97,6 +97,12 @@ var openCards = [];
  function moveCount() {
    moves++;
    moveCounter.innerHTML = moves;
+   if (moves == 1) {
+     seconds = 0;
+     minutes = 0;
+     hours = 0;
+     startTimer();
+   }
    if (moves > 8 && moves < 10) {
      for (i = 0; i < 3; i++) {
        if (i > 1) {
@@ -112,3 +118,24 @@ var openCards = [];
      }
    }
  }
+
+//Timer
+
+var seconds = 0;
+var minutes = 0;
+var timer = document.querySelector(".game-timer");
+var interval;
+
+function startTimer(){
+    interval = setInterval(function(){
+        timer.innerHTML = "0" + minutes + ":" + seconds;
+        seconds++;
+        if(seconds < 10){
+            seconds = `0${seconds}`;
+        }
+        if(seconds >= 60){
+            minutes++;
+            seconds = "00"
+        }
+    },1000);
+}
