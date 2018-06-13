@@ -62,9 +62,11 @@ initGame();
 
 var allCards = document.querySelectorAll('.card');
 var openCards = [];
+var matchingCards = [];
 
  allCards.forEach(function(card) {
    card.addEventListener('click', function(e) {
+     startTimer();
      if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
        openCards.push(card);
        card.classList.add('open', 'show');
@@ -74,6 +76,8 @@ var openCards = [];
          if (openCards[0].dataset.card == openCards[1].dataset.card) {
            openCards[0].classList.add('match', 'open', 'show');
            openCards[1].classList.add('match', 'open', 'show');
+           let match = true;
+           matchingCards.push(card);
            openCards = [];
          } else {
            setTimeout(function() {
@@ -82,6 +86,9 @@ var openCards = [];
              });
              openCards = [];
            }, 1000);
+         }
+         if (matchingCards.length === 8) {
+           stopTimer();
          }
        }
      }
@@ -119,23 +126,29 @@ var openCards = [];
    }
  }
 
-//Timer TODO fix bad formatting at 0 seconds (00:0), and make timer start on first click
+ let sec = 0;
+ let min = 0;
+ let timer;
+ function startTimer() {
+   if (!timer) {
+     timer = setInterval(insertTime, 1000);
+   }
+ }
 
-var seconds = 0;
-var minutes = 0;
-var timer = document.querySelector(".game-timer");
-var interval;
+function stopTimer() {
+  clearInterval(timer);
+  sec = 0;
+  min = 0;
+}
 
-function startTimer(){
-    interval = setInterval(function(){
-        timer.innerHTML = "0" + minutes + ":" + seconds;
-        seconds++;
-        if(seconds < 10){
-            seconds = `0${seconds}`;
-        }
-        if(seconds >= 60){
-            minutes++;
-            seconds = "00"
-        }
-    },1000);
+function insertTime() {
+  sec ++;
+  if (sec < 10) {
+    sec = `0${sec}`;
+  }
+  if (sec >= 60) {
+    min++;
+    sec = '00';
+  }
+  document.querySelector('.game-timer').innerHTML = min + ' mins, ' + sec + ' secs';
 }
