@@ -126,6 +126,8 @@ var matchingCards = [];
    }
  }
 
+//timer functions
+
  let sec = 0;
  let min = 0;
  let timer;
@@ -152,3 +154,14 @@ function insertTime() {
   }
   document.querySelector('.game-timer').innerHTML = min + ' mins, ' + sec + ' secs';
 }
+
+//restart game
+
+var restart = document.querySelector('.restart');
+function restartGame() {
+  restart.addEventListener('click', function(e) {
+    let restart = e.target;
+    window.location.reload();
+  });
+};
+restartGame();
