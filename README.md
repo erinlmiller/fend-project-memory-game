@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-* [How To Play](#how to play)
-* [Icon Source](#icon source)
+* [How To Play](#how-to-play)
+* [Icon Source](#icon-source)
 * [Acknowledgments](#acknowledgments)
 
 ## How To Play
@@ -12,7 +12,7 @@
 * Open in your favorite browser.
 * Click cards in order to find matches.
 * After all cards have been matched, a modal will pop up, tell you your stats, and give you the option to play again or end the current game.
-* You may restart the game at any time by click the refresh icon.
+* You may restart the game at any time by clicking the refresh icon.
 
 ## Icon Source
 
