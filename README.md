@@ -1,20 +1,25 @@
-# Memory Game Project
+# Memory Game
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [How To Play](#how to play)
+* [Icon Source](#icon source)
+* [Acknowledgments](#acknowledgments)
 
-## Instructions
+## How To Play
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* Download the repository.
+* Open in your favorite browser.
+* Click cards in order to find matches.
+* After all cards have been matched, a modal will pop up, tell you your stats, and give you the option to play again or end the current game.
+* You may restart the game at any time by click the refresh icon.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Icon Source
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+* Font awesome
 
-## Contributing
+## Acknowledgments
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+* FEND P3 tutorial webinar by Mike Wales: https://youtu.be/_rUH-sEs68Y
+* Shuffle function from http://stackoverflow.com/a/2450976
+* timer functions from Chris N on FEND Slack channel
