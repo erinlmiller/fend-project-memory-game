@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-* [How To Play](#how to play)
-* [Icon Source](#icon source)
+* [How To Play](#how-to-play)
+* [Icon Source](#icon-source)
 * [Acknowledgments](#acknowledgments)
 
 ## How To Play
