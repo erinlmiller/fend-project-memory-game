@@ -87,9 +87,10 @@ var matchingCards = [];
              openCards = [];
            }, 1000);
          }
-         if (matchingCards.length === 8) {
-           stopTimer();
-         }
+         //if (matchingCards.length === 8) {
+           //stopTimer();
+         //}
+         gameOver();
        }
      }
    });
@@ -100,6 +101,7 @@ var matchingCards = [];
  let moves = 0;
  let moveCounter = document.querySelector('.moves');
  const stars = document.querySelectorAll('.fa-star');
+ let starCount = 3;
 
  function moveCount() {
    moves++;
@@ -110,23 +112,25 @@ var matchingCards = [];
      hours = 0;
      startTimer();
    }
-   if (moves > 8 && moves < 10) {
+   if (moves > 16 && moves < 20) {
      for (i = 0; i < 3; i++) {
        if (i > 1) {
          stars[i].style.visibility = 'collapse';
+         starCount = 2;
        }
      }
    }
-   else if (moves > 11) {
+   else if (moves > 24) {
      for (i = 0; i < 3; i++) {
        if (i > 0) {
          stars[i].style.visibility = 'collapse';
+         starCount = 1;
        }
      }
    }
  }
 
-//timer functions
+//timer functions from Chris N on FEND Slack channel
 
  let sec = 0;
  let min = 0;
@@ -165,3 +169,28 @@ function restartGame() {
   });
 };
 restartGame();
+
+//modal
+
+let modal = document.getElementById("modal-game-over");
+let modalStats = document.getElementById("stats-text");
+const newGameButton = document.getElementById("newGame");
+const endGameButton = document.getElementById("endGame");
+
+function gameOver() {
+  if (matchingCards.length === 8) {
+    clearInterval(timer);
+    modal.style.display = "block";
+    modalStats.innerText = `You won! Moves: ${moves}, time: ${min} minutes and ${sec} seconds, star rating: ${starCount}. Good job!`
+  }
+}
+
+newGameButton.addEventListener('click', function() {
+  modal.style.display = 'none';
+  window.location.reload(false);
+});
+
+endGameButton.addEventListener('click', function() {
+  modal.style.display = 'none';
+  window.close();
+});

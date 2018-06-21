@@ -116,3 +116,37 @@ h1 {
   display: inline-block;
   padding-left: 20%;
 }
+
+/*
+ * Modal styles
+ */
+
+ .modal {
+ 	display: none;
+ 	position: fixed;
+ 	z-index: 1;
+ 	left: 0;
+ 	top: 0;
+ 	height: 100%;
+ 	width: 100%;
+ }
+
+ .modal-box {
+ 	padding: 15px;
+ 	margin: 20% auto;
+ 	width: 50%;
+ 	background-color: #ffffff;
+ }
+
+ .modal-box h1 {
+ 	text-align: center;
+ }
+
+ .modal-box p {
+   text-align: center;
+ }
+
+ .modal-button {
+ 	background-color: lightgray;
+ 	cursor: pointer;
+ }
